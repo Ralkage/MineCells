@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:clock"
+    },
+    "title": {
+      "translate": "advancements.minecells.time_keeper"
+    },
+    "description": {
+      "translate": "advancements.minecells.time_keeper.description"
+    }
+  },
+  "parent": "minecells:clock_tower",
+  "criteria": {
+    "time_keeper_killed": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"variants":{"facing=east":{"model":"minecells:block/clock_tower_doorway","y":90},"facing=north":{"model":"minecells:block/clock_tower_doorway"},"facing=south":{"model":"minecells:block/clock_tower_doorway","y":180},"facing=west":{"model":"minecells:block/clock_tower_doorway","y":270}}}

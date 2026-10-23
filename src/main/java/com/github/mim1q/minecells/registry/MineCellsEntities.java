@@ -4,6 +4,7 @@ import com.github.mim1q.minecells.MineCells;
 import com.github.mim1q.minecells.entity.*;
 import com.github.mim1q.minecells.entity.boss.ConciergeEntity;
 import com.github.mim1q.minecells.entity.boss.ConjunctiviusEntity;
+import com.github.mim1q.minecells.entity.boss.TimeKeeperEntity;
 import com.github.mim1q.minecells.entity.nonliving.ElevatorEntity;
 import com.github.mim1q.minecells.entity.nonliving.ShockwavePlacer;
 import com.github.mim1q.minecells.entity.nonliving.SpawnerRuneEntity;
@@ -50,6 +51,7 @@ public final class MineCellsEntities {
   public static final EntityType<SweeperEntity> SWEEPER = registerEntity("sweeper", SpawnGroup.MONSTER, SweeperEntity::new, 0.9F, 1.6F);
   public static final EntityType<ConjunctiviusEntity> CONJUNCTIVIUS = registerEntity("conjunctivius", SpawnGroup.MONSTER, ConjunctiviusEntity::new, 5.0F, 5.0F);
   public static final EntityType<ConciergeEntity> CONCIERGE = registerEntity("concierge", SpawnGroup.MONSTER, ConciergeEntity::new, 1.8F, 3.5F);
+  public static final EntityType<TimeKeeperEntity> TIME_KEEPER = registerEntity("time_keeper", SpawnGroup.MONSTER, TimeKeeperEntity::new, 0.9F, 2.8F);
   public static final EntityType<GrenadeEntity> GRENADE = registerEntity("grenade", SpawnGroup.MISC, GrenadeEntity::new, 0.5F, 0.5F);
   public static final EntityType<BigGrenadeEntity> BIG_GRENADE = registerEntity("big_grenade", SpawnGroup.MISC, BigGrenadeEntity::new, 0.75F, 0.75F);
   public static final EntityType<DisgustingWormEggEntity> DISGUSTING_WORM_EGG = registerEntity("disgusting_worm_egg", SpawnGroup.MISC, DisgustingWormEggEntity::new, 0.375F, 0.375F);
@@ -84,6 +86,7 @@ public final class MineCellsEntities {
   public static final SpawnEggItem SCORPION_SPAWN_EGG = registerSpawnEgg(SCORPION, 0x6DBCD5, 0x4B3A5B);
   public static final SpawnEggItem BUZZCUTTER_SPAWN_EGG = registerSpawnEgg(BUZZCUTTER, 0xEB1F51, 0xFFCC00);
   public static final SpawnEggItem SWEEPER_SPAWN_EGG = registerSpawnEgg(SWEEPER, 0x5C73BF, 0xFFCC00);
+  public static final SpawnEggItem TIME_KEEPER_SPAWN_EGG = registerSpawnEgg(TIME_KEEPER, 0x273048, 0xD9A86E);
 
   public static void init() {
     FabricDefaultAttributeRegistry.register(LEAPING_ZOMBIE, LeapingZombieEntity.createLeapingZombieAttributes());
@@ -104,6 +107,7 @@ public final class MineCellsEntities {
     FabricDefaultAttributeRegistry.register(SWEEPER, SweeperEntity.createSweeperAttributes());
     FabricDefaultAttributeRegistry.register(CONJUNCTIVIUS, ConjunctiviusEntity.createConjunctiviusAttributes());
     FabricDefaultAttributeRegistry.register(CONCIERGE, ConciergeEntity.createConciergeAttributes());
+    FabricDefaultAttributeRegistry.register(TIME_KEEPER, TimeKeeperEntity.createTimeKeeperAttributes());
   }
 
   private static SpawnEggItem registerSpawnEgg(EntityType<? extends MobEntity> type, int primaryColor, int secondaryColor) {

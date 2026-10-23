@@ -1,0 +1,14 @@
+{
+  "type": "minecells:clock_tower",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "minecells:clock_tower",
+      "lakes": false,
+      "features": true,
+      "layers": [
+        {"block": "minecells:hardstone", "height": 64}
+      ]
+    }
+  }
+}

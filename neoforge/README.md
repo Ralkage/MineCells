@@ -38,3 +38,21 @@ Its chest contains a Prisoners' Quarters Doorway item; place that item on a
 clear 3×3 solid wall in the Overworld to build an active portal. The doorway
 can also be crafted or taken from the Mine Cells creative tab. Active portals
 do not generate in the terrain by themselves.
+
+## Clock Tower feature branch
+
+The Clock Tower follows the Black Bridge. Defeat the Concierge, pass through
+the new doorway in the Black Bridge arena, cross the tower's combat rooms and
+treasure detour, then fight the Time Keeper. Her blade, dash, and clock pulse
+have visible windups; the second phase is faster. Defeating her opens the
+Overworld exit. A doorway at the tower entrance returns to the Black Bridge.
+
+Previously generated Black Bridge arenas do not gain the new doorway. In an
+existing save, defeating the Concierge unlocks a Clock Tower Doorway recipe
+in the Cell Crafter. Place that doorway on a clear 3×3 solid wall in the
+Overworld to enter the route. A new world or a fresh Black Bridge run area
+has the built-in arena doorway.
+
+To test in a development client, run
+`JAVA_HOME=/path/to/jdk-21 bash ./gradlew -p neoforge runClient` from the
+repository root.

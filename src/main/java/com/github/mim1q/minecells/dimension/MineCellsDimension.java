@@ -39,7 +39,8 @@ public enum MineCellsDimension {
   INSUFFERABLE_CRYPT(MineCells.createId("insufferable_crypt"), 1024.0, new InsufferableCryptGridGenerator(0, 0)),
   PROMENADE_OF_THE_CONDEMNED(MineCells.createId("promenade"), 1024.0, new BetterPromenadeGridGenerator(0, 0)),
   RAMPARTS(MineCells.createId("ramparts"), -384.0, new RampartsGridGenerator(0, 0)),
-  BLACK_BRIDGE(MineCells.createId("black_bridge"), 384.0, new BlackBridgeGridGenerator(0, 0));
+  BLACK_BRIDGE(MineCells.createId("black_bridge"), 384.0, new BlackBridgeGridGenerator(0, 0)),
+  CLOCK_TOWER(MineCells.createId("clock_tower"), 1024.0, new ClockTowerGridGenerator());
 
   public final RegistryKey<World> key;
   private final Identifier id;
@@ -173,6 +174,7 @@ public enum MineCellsDimension {
     return switch (this) {
       case PROMENADE_OF_THE_CONDEMNED -> 1;
       case RAMPARTS -> 2;
+      case CLOCK_TOWER -> 3;
       default -> 0;
     };
   }
@@ -195,6 +197,7 @@ public enum MineCellsDimension {
       case INSUFFERABLE_CRYPT -> 0xFF4CF4;
       case RAMPARTS -> 0xFFC540;
       case BLACK_BRIDGE -> 0x623cc9;
+      case CLOCK_TOWER -> 0xD9A86E;
     };
   }
 
@@ -221,6 +224,7 @@ public enum MineCellsDimension {
       .put(INSUFFERABLE_CRYPT, List.of(new GetAdvancement(MineCells.createId("vine_rune"))))
       .put(RAMPARTS, List.of(new AccessFromDimension(PROMENADE_OF_THE_CONDEMNED)))
       .put(BLACK_BRIDGE, List.of(new AccessFromDimension(RAMPARTS)))
+      .put(CLOCK_TOWER, List.of(new AccessFromDimension(BLACK_BRIDGE)))
       .build();
 
 //  public boolean canMusicStart(ClientPlayerEntity player) {

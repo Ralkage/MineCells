@@ -144,6 +144,7 @@ public class MineCellsBlocks {
   public static final Block KINGDOM_PORTAL_CORE = registerBlock(new Block(AbstractBlock.Settings.copy(Blocks.DIRT)), "kingdom_portal_core");
   public static final Block CONJUNCTIVIUS_BOX = registerBlock(new MonsterBoxBlock(MineCells.createId("boss/conjunctivius")), "conjunctivius_box");
   public static final Block CONCIERGE_BOX = registerBlock(new MonsterBoxBlock(MineCells.createId("boss/concierge")), "concierge_box");
+  public static final Block TIME_KEEPER_BOX = registerBlock(new MonsterBoxBlock(MineCells.createId("boss/time_keeper")), "time_keeper_box");
   public static final Block BEAM_PLACER = registerBlock(new BeamPlacerBlock(AbstractBlock.Settings.copy(Blocks.BEDROCK)), "beam_placer");
   public static final FluidBlock SEWAGE = new FluidBlock(MineCellsFluids.STILL_SEWAGE, AbstractBlock.Settings.copy(Blocks.WATER));
   public static final FluidBlock ANCIENT_SEWAGE = new FluidBlock(MineCellsFluids.STILL_ANCIENT_SEWAGE, AbstractBlock.Settings.copy(Blocks.WATER));
@@ -155,6 +156,7 @@ public class MineCellsBlocks {
   public static final FlagBlock RAMPARTS_FLAG = registerFlag("ramparts", false);
   public static final FlagBlock INSUFFERABLE_CRYPT_FLAG = registerFlag("insufferable_crypt", false);
   public static final FlagBlock BLACK_BRIDGE_FLAG = registerFlag("black_bridge", false);
+  public static final FlagBlock CLOCK_TOWER_FLAG = registerFlag("clock_tower", false);
 
   public static final Map<DyeColor, FlagBlock> RIBBON_FLAGS = ORDERED_COLORS.stream()
     .collect(Collectors.toMap(Function.identity(), it -> registerFlag(it.getName() + "_ribbon", false)));
@@ -185,6 +187,7 @@ public class MineCellsBlocks {
   public static final DoorwayPortalBlock INSUFFERABLE_CRYPT_DOORWAY = registerDoorway(DoorwayType.INSUFFERABLE_CRYPT, "insufferable_crypt_doorway");
   public static final DoorwayPortalBlock RAMPARTS_DOORWAY = registerDoorway(DoorwayType.RAMPARTS, "ramparts_doorway");
   public static final DoorwayPortalBlock BLACK_BRIDGE_DOORWAY = registerDoorway(DoorwayType.BLACK_BRIDGE, "black_bridge_doorway");
+  public static final DoorwayPortalBlock CLOCK_TOWER_DOORWAY = registerDoorway(DoorwayType.CLOCK_TOWER, "clock_tower_doorway");
 
   public static void init() {
     Registry.register(Registries.BLOCK, MineCells.createId("sewage"), SEWAGE);

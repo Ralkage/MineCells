@@ -18,6 +18,8 @@
     {
       "type": "minecells:references",
       "content": [
+        "# book.minecells.common.leads_to",
+        "minecells:dimensions/clock_tower",
         "# book.minecells.categories.mobs",
         "minecells:bosses/concierge"
       ]

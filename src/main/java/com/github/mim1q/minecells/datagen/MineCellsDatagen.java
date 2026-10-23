@@ -130,6 +130,7 @@ public class MineCellsDatagen extends AllDatagenUtils {
     addInvisibleBlock(MineCellsBlocks.PLAYER_BARRIER_CONTROLLER);
     addInvisibleBlock(MineCellsBlocks.CONJUNCTIVIUS_BOX);
     addInvisibleBlock(MineCellsBlocks.CONCIERGE_BOX);
+    addInvisibleBlock(MineCellsBlocks.TIME_KEEPER_BOX);
     addInvisibleBlock(MineCellsBlocks.RIFT);
     addInvisibleBlock(MineCellsBlocks.DOORWAY_FRAME);
     addInvisibleBlock(MineCellsBlocks.UNBREAKABLE_DOORWAY_FRAME);
@@ -179,6 +180,7 @@ public class MineCellsDatagen extends AllDatagenUtils {
     addDoorway(MineCellsBlocks.PROMENADE_DOORWAY);
     addDoorway(MineCellsBlocks.RAMPARTS_DOORWAY);
     addDoorway(MineCellsBlocks.BLACK_BRIDGE_DOORWAY);
+    addDoorway(MineCellsBlocks.CLOCK_TOWER_DOORWAY);
     addDoorway(MineCellsBlocks.INSUFFERABLE_CRYPT_DOORWAY);
   }
 
@@ -288,6 +290,7 @@ public class MineCellsDatagen extends AllDatagenUtils {
     addFlag(MineCellsBlocks.RAMPARTS_FLAG, Blocks.YELLOW_WOOL, MineCells.createId("ramparts"));
     addFlag(MineCellsBlocks.INSUFFERABLE_CRYPT_FLAG, Blocks.GREEN_WOOL, MineCells.createId("insufferable_crypt"));
     addFlag(MineCellsBlocks.BLACK_BRIDGE_FLAG, Blocks.PURPLE_WOOL, MineCells.createId("black_bridge"));
+    addFlag(MineCellsBlocks.CLOCK_TOWER_FLAG, Blocks.ORANGE_WOOL, MineCells.createId("clock_tower"));
 
     for (var egg : spawnEggs) {
       var id = getItemId(egg, "spawn_eggs/");

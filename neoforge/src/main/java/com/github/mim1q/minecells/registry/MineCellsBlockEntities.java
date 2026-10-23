@@ -15,7 +15,7 @@ public class MineCellsBlockEntities {
     "setup_block_entity",
     SetupBlockEntity::new,
     MineCellsBlocks.ELEVATOR_ASSEMBLER, MineCellsBlocks.CONJUNCTIVIUS_BOX, MineCellsBlocks.BEAM_PLACER,
-    MineCellsBlocks.CONCIERGE_BOX
+    MineCellsBlocks.CONCIERGE_BOX, MineCellsBlocks.TIME_KEEPER_BOX
   );
   public static final BlockEntityType<FlagBlockEntity> FLAG_BLOCK_ENTITY = register(
     "biome_banner", FlagBlockEntity::new, MineCellsBlocks.FLAG_BLOCKS.toArray(new Block[0])
@@ -35,7 +35,8 @@ public class MineCellsBlockEntities {
   public static final BlockEntityType<DoorwayPortalBlockEntity> DOORWAY = register(
     "doorway", DoorwayPortalBlockEntity::new,
     MineCellsBlocks.OVERWORLD_DOORWAY, MineCellsBlocks.PRISON_DOORWAY, MineCellsBlocks.PROMENADE_DOORWAY,
-    MineCellsBlocks.INSUFFERABLE_CRYPT_DOORWAY, MineCellsBlocks.RAMPARTS_DOORWAY, MineCellsBlocks.BLACK_BRIDGE_DOORWAY
+    MineCellsBlocks.INSUFFERABLE_CRYPT_DOORWAY, MineCellsBlocks.RAMPARTS_DOORWAY,
+    MineCellsBlocks.BLACK_BRIDGE_DOORWAY, MineCellsBlocks.CLOCK_TOWER_DOORWAY
   );
   public static final BlockEntityType<BarrierControllerBlockEntity> BARRIER_CONTROLLER = register(
     "barrier_controller", BarrierControllerBlockEntity::new,

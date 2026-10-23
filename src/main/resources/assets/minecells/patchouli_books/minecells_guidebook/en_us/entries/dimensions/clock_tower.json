@@ -1,0 +1,31 @@
+{
+  "name": "dimension.minecells.clock_tower",
+  "category": "minecells:dimensions",
+  "icon": "minecraft:cut_copper",
+  "sortnum": 5,
+  "advancement": "minecells:black_bridge",
+  "pages": [
+    {
+      "type": "minecells:dimension_image",
+      "title0": "book.minecells.entries.dimensions.clock_tower.title0",
+      "title1": "book.minecells.entries.dimensions.clock_tower.title1",
+      "image": "minecells:textures/gui/guidebook/images/clock_tower.png"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "book.minecells.entries.dimensions.clock_tower.description"
+    },
+    {
+      "type": "minecells:references",
+      "content": [
+        "# book.minecells.common.accessible_from",
+        "minecells:dimensions/black_bridge",
+        "# book.minecells.categories.mobs",
+        "minecells:mobs/shieldbearer",
+        "minecells:mobs/inquisitor",
+        "minecells:mobs/buzzcutter",
+        "minecells:bosses/time_keeper"
+      ]
+    }
+  ]
+}

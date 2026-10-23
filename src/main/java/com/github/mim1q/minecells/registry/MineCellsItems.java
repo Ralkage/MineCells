@@ -341,6 +341,7 @@ public class MineCellsItems {
     registerDoorwayItem(MineCellsBlocks.RAMPARTS_DOORWAY);
     registerDoorwayItem(MineCellsBlocks.INSUFFERABLE_CRYPT_DOORWAY);
     registerDoorwayItem(MineCellsBlocks.BLACK_BRIDGE_DOORWAY);
+    registerDoorwayItem(MineCellsBlocks.CLOCK_TOWER_DOORWAY);
   }
 
   public static void init() {

@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:clock"
+    },
+    "title": {
+      "translate": "advancements.minecells.clock_tower"
+    },
+    "description": {
+      "translate": "advancements.minecells.clock_tower.description"
+    }
+  },
+  "parent": "minecells:black_bridge",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "dimension": "minecells:clock_tower"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

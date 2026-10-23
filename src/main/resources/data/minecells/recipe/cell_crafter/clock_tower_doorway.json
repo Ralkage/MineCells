@@ -1,0 +1,1 @@
+{"type":"minecells:cell_forge_recipe","advancement":"minecells:concierge","category":"other","input":{"minecells:monster_cell":16,"minecraft:clock":1,"minecraft:copper_ingot":4},"output":{"count":1,"id":"minecells:clock_tower_doorway"},"priority":100}

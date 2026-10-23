@@ -32,6 +32,7 @@ public class MineCellsDimensionGraph {
     var blackBridge = add(MineCellsDimension.BLACK_BRIDGE,
       ramparts
     );
+    add(MineCellsDimension.CLOCK_TOWER, blackBridge);
   }
 
   public boolean canTraverseToOverworld(MineCellsDimension dimension, BiPredicate<MineCellsDimension, MineCellsDimension> predicate) {

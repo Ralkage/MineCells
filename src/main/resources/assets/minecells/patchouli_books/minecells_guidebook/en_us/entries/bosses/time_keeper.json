@@ -1,0 +1,25 @@
+{
+  "name": "entity.minecells.time_keeper",
+  "category": "minecells:bosses",
+  "icon": "minecraft:clock",
+  "advancement": "minecells:clock_tower",
+  "pages": [
+    {
+      "type": "minecells:entity",
+      "entity": "minecells:time_keeper",
+      "title": "entity.minecells.time_keeper",
+      "text": "book.minecells.entries.bosses.time_keeper.description0"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "book.minecells.entries.bosses.time_keeper.description1"
+    },
+    {
+      "type": "minecells:references",
+      "content": [
+        "# book.minecells.common.found_in",
+        "minecells:dimensions/clock_tower"
+      ]
+    }
+  ]
+}

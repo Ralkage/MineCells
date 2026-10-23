@@ -14,7 +14,6 @@ import net.minecraft.world.gen.heightprovider.HeightProvider;
 import net.minecraft.world.gen.structure.Structure;
 import net.minecraft.world.gen.structure.StructureType;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.BiFunction;
@@ -51,6 +50,10 @@ public class GridBasedStructure extends Structure {
 
   public static final MapCodec<GridBasedStructure> BLACK_BRIDGE_CODEC = createMultipartGridBasedStructureCodec(
     BlackBridgeGridGenerator::new, () -> MineCellsStructures.BLACK_BRIDGE
+  );
+
+  public static final MapCodec<GridBasedStructure> CLOCK_TOWER_CODEC = createGridBasedStructureCodec(
+    ctx -> new ClockTowerGridGenerator(), () -> MineCellsStructures.CLOCK_TOWER
   );
 
   public static MapCodec<GridBasedStructure> createGridBasedStructureCodec(
@@ -105,7 +108,6 @@ public class GridBasedStructure extends Structure {
   }
 
   private final Function<Context, RoomGridGenerator> generatorProvider;
-  private List<GridPiece> pieces = new ArrayList<>();
   private final HeightProvider heightProvider;
   private final Optional<Heightmap.Type> projectStartToHeightmap;
   private final Supplier<StructureType<?>> typeSupplier;
@@ -141,7 +143,7 @@ public class GridBasedStructure extends Structure {
     ).orElse(0);
     BlockPos blockPos = new BlockPos(x, y + heightmapY, z);
     RoomGridGenerator generator = this.getGenerator(context);
-    pieces = GridPiecesGenerator.generatePieces(blockPos, projectStartToHeightmap, context, 16, generator);
+    List<GridPiece> pieces = GridPiecesGenerator.generatePieces(blockPos, projectStartToHeightmap, context, 16, generator);
     return Optional.of(new Structure.StructurePosition(blockPos, collector -> {
       for (GridPiece piece : pieces) {
         collector.addPiece(piece);

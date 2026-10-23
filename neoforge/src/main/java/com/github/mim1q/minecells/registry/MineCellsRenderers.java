@@ -102,6 +102,7 @@ public class MineCellsRenderers {
   public static final EntityModelLayer CONJUNCTIVIUS_SPIKE_LAYER = new EntityModelLayer(MineCells.createId("conjunctivius"), "spike");
 
   public static final EntityModelLayer CONCIERGE_LAYER = registerLayer("concierge", ConciergeEntityModel::getTexturedModelData);
+  public static final EntityModelLayer TIME_KEEPER_LAYER = registerLayer("time_keeper", TimeKeeperEntityModel::getTexturedModelData);
 
   public static final EntityModelLayer GRENADE_LAYER = new EntityModelLayer(MineCells.createId("grenade"), "main");
   public static final EntityModelLayer BIG_GRENADE_LAYER = new EntityModelLayer(MineCells.createId("big_grenade"), "main");
@@ -203,6 +204,7 @@ public class MineCellsRenderers {
     event.registerEntityRenderer(MineCellsEntities.SWEEPER, SweeperEntityRenderer::new);
     event.registerEntityRenderer(MineCellsEntities.CONJUNCTIVIUS, ConjunctiviusEntityRenderer::new);
     event.registerEntityRenderer(MineCellsEntities.CONCIERGE, ConciergeEntityRenderer::new);
+    event.registerEntityRenderer(MineCellsEntities.TIME_KEEPER, TimeKeeperEntityRenderer::new);
 
     event.registerEntityRenderer(MineCellsEntities.GRENADE, GrenadeEntityRenderer::new);
     event.registerEntityRenderer(MineCellsEntities.BIG_GRENADE, BigGrenadeEntityRenderer::new);

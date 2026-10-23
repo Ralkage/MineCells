@@ -29,6 +29,9 @@ public class MineCellsStructures {
   // Black Bridge
   public static StructureType<GridBasedStructure> BLACK_BRIDGE;
 
+  // Clock Tower
+  public static StructureType<GridBasedStructure> CLOCK_TOWER;
+
   // Structure Pieces
   public static final StructurePieceType GRID_PIECE = GridPiece::new;
 
@@ -44,6 +47,7 @@ public class MineCellsStructures {
     PROMENADE_WALL_Z = registerStructure("promenade_wall_z", GridBasedStructure.PROMENADE_WALL_Z_CODEC);
     RAMPARTS = registerStructure("ramparts", GridBasedStructure.RAMPARTS_CODEC);
     BLACK_BRIDGE = registerStructure("black_bridge", GridBasedStructure.BLACK_BRIDGE_CODEC);
+    CLOCK_TOWER = registerStructure("clock_tower", GridBasedStructure.CLOCK_TOWER_CODEC);
   }
 
   public static void registerPieces() {

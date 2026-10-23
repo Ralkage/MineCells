@@ -28,7 +28,7 @@ public class DimensionButton extends ButtonComponent {
 
     var tooltips = new ArrayList<Text>();
     tooltips.add(Text.translatable(dimension.translationKey).styled(it -> it.withBold(true).withColor(dimension.getColor())));
-    if (dimension == MineCellsDimension.BLACK_BRIDGE || dimension == MineCellsDimension.INSUFFERABLE_CRYPT) {
+    if (dimension == MineCellsDimension.BLACK_BRIDGE || dimension == MineCellsDimension.INSUFFERABLE_CRYPT || dimension == MineCellsDimension.CLOCK_TOWER) {
       tooltips.add(Text.translatable("gui.minecells.doorway_selection.boss").styled(it -> it.withColor(Formatting.RED)));
     }
     if (locked) {

@@ -1,0 +1,1 @@
+{"type":"minecells:cell_forge_recipe","advancement":"minecells:clock_tower","category":"decoration","input":{"minecraft:orange_wool":2,"minecraft:stick":1},"output":{"count":1,"id":"minecells:clock_tower_flag"},"priority":100}

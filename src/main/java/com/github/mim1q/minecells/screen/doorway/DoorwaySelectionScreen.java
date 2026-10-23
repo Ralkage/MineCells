@@ -59,6 +59,7 @@ public class DoorwaySelectionScreen extends BaseOwoScreen<FlowLayout> {
     dimensions.child(createDimensionButton(MineCellsDimension.RAMPARTS));
     dimensions.child(createDimensionButton(MineCellsDimension.INSUFFERABLE_CRYPT));
     dimensions.child(createDimensionButton(MineCellsDimension.BLACK_BRIDGE));
+    dimensions.child(createDimensionButton(MineCellsDimension.CLOCK_TOWER));
 
     rootComponent.child(dimensions);
     rootComponent.child(body);
@@ -76,6 +77,7 @@ public class DoorwaySelectionScreen extends BaseOwoScreen<FlowLayout> {
       case PROMENADE_OF_THE_CONDEMNED -> "promenade_of_the_condemned";
       case RAMPARTS -> "ramparts";
       case BLACK_BRIDGE -> "black_bridge";
+      case CLOCK_TOWER -> "clock_tower";
       case INSUFFERABLE_CRYPT -> "insufferable_crypt";
       default -> "torn_kings_crest";
     };

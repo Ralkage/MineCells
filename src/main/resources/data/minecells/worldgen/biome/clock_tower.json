@@ -1,0 +1,21 @@
+{
+  "carvers": {},
+  "downfall": 0.0,
+  "has_precipitation": false,
+  "temperature": 0.5,
+  "effects": {
+    "water_color": 3421345,
+    "water_fog_color": 2360827,
+    "fog_color": 5264503,
+    "sky_color": 2962272,
+    "music": {
+      "sound": "minecells:music.black_bridge",
+      "min_delay": 20,
+      "max_delay": 40,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "features": []
+}
