@@ -2,7 +2,7 @@ package com.github.mim1q.minecells.entity.boss;
 
 import com.github.mim1q.minecells.entity.MineCellsEntity;
 import com.github.mim1q.minecells.registry.MineCellsItems;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import com.github.mim1q.minecells.network.TrackingPlayers;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
@@ -40,7 +40,7 @@ public abstract class MineCellsBossEntity extends MineCellsEntity {
       getWorld().playSound(getX(), getY(), getZ(), sound, SoundCategory.HOSTILE, volume, pitch, false);
       return;
     }
-    PlayerLookup.tracking(this).forEach(player -> {
+    TrackingPlayers.tracking(this).forEach(player -> {
       var diff = this.getPos().subtract(player.getPos()).normalize();
       var packet = new PlaySoundS2CPacket(
         RegistryEntry.of(sound),
@@ -48,7 +48,7 @@ public abstract class MineCellsBossEntity extends MineCellsEntity {
         player.getX() + diff.getX(), player.getY() + diff.getY(), player.getZ() + diff.getZ(),
         volume, pitch, getRandom().nextLong()
       );
-      player.networkHandler.sendPacket(packet);
+      com.github.mim1q.minecells.network.SoundPacketBridge.send(player, packet);
     });
   }
 

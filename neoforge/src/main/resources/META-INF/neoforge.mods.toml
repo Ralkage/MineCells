@@ -1,0 +1,39 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="MIT (code); see LICENSE_ASSETS for asset terms"
+issueTrackerURL="https://github.com/Ralkage/MineCells/issues"
+
+[[mods]]
+modId="minecells"
+version="${version}"
+displayName="Mine Cells"
+description='''Brings content from Dead Cells into Minecraft.'''
+authors="Mim1q"
+logoFile="assets/minecells/icon.png"
+
+[[mixins]]
+config="minecells.neoforge.mixins.json"
+
+[[mixins]]
+config="gimm1q.neoforge.mixins.json"
+
+[[dependencies.minecells]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.262,21.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.minecells]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,1.21.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.minecells]]
+modId="owo"
+type="required"
+versionRange="[0.12.15,)"
+ordering="NONE"
+side="BOTH"

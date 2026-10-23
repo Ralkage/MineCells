@@ -10,7 +10,7 @@ import com.github.mim1q.minecells.network.s2c.SpawnRuneParticlesS2CPacket;
 import com.github.mim1q.minecells.network.s2c.SpawnerRuneUpdateS2CPacket;
 import com.github.mim1q.minecells.registry.MineCellsParticles;
 import com.github.mim1q.minecells.util.ParticleUtils;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import com.github.mim1q.minecells.network.TrackingPlayers;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -142,7 +142,7 @@ public class SpawnerRuneController {
     if (spawnedEntity == null) return null;
     spawnedEntity.setPos(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
     if (spawnedEntity instanceof LivingEntity livingEntity) {
-      for (ServerPlayerEntity player : PlayerLookup.tracking(world, runePos)) {
+      for (ServerPlayerEntity player : TrackingPlayers.tracking(world, runePos)) {
         ServerPacketHandler.CHANNEL.serverHandle(player).send(new SpawnRuneParticlesS2CPacket(livingEntity.getBoundingBox().expand(0.5D)));
       }
       entityData.attributeOverrides().forEach((attribute, value) -> {

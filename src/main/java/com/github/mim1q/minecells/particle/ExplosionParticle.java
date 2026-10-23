@@ -1,8 +1,6 @@
 package com.github.mim1q.minecells.particle;
 
 import com.github.mim1q.minecells.util.ParticleUtils;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.SimpleParticleType;
@@ -47,7 +45,6 @@ public class ExplosionParticle extends SpriteBillboardParticle {
     return ParticleUtils.getTranslucentParticleType();
   }
 
-  @Environment(EnvType.CLIENT)
   public static class Factory implements ParticleFactory<SimpleParticleType> {
     private final SpriteProvider spriteProvider;
 

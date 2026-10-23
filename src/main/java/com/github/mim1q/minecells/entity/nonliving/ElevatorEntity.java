@@ -11,7 +11,7 @@ import com.github.mim1q.minecells.registry.MineCellsEntities;
 import com.github.mim1q.minecells.registry.MineCellsItems;
 import com.github.mim1q.minecells.registry.MineCellsSounds;
 import com.github.mim1q.minecells.util.ParticleUtils;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import com.github.mim1q.minecells.network.TrackingPlayers;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ChainBlock;
@@ -218,7 +218,7 @@ public class ElevatorEntity extends Entity {
         getWorld().spawnEntity(entity);
       }
       this.playSound(SoundEvents.BLOCK_WOOD_BREAK, 1.0F, 1.0F);
-      for (ServerPlayerEntity player : PlayerLookup.tracking(this)) {
+      for (ServerPlayerEntity player : TrackingPlayers.tracking(this)) {
         ServerPacketHandler.CHANNEL.serverHandle(player).send(new ElevatorDestroyedS2CPacket(getPos()));
       }
       super.kill();

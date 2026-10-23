@@ -1,0 +1,1 @@
+{"variants":{"facing=east":{"model":"minecells:block/cell_crafter","y":90},"facing=north":{"model":"minecells:block/cell_crafter"},"facing=south":{"model":"minecells:block/cell_crafter","y":180},"facing=west":{"model":"minecells:block/cell_crafter","y":270}}}

@@ -2,10 +2,7 @@ package com.github.mim1q.minecells.config;
 
 import blue.endless.jankson.Comment;
 import io.wispforest.owo.config.annotation.Config;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 
-@Environment(EnvType.CLIENT)
 @Config(name = "minecells/client", wrapperName = "MineCellsClientConfig")
 public class ClientConfigModel {
 

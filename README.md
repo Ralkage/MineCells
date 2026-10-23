@@ -8,6 +8,11 @@ For more info and a feature overview, check out any of the mod pages linked dire
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/minecells)
 - [Modrinth](https://modrinth.com/mod/minecells)
 
+## NeoForge 1.21.1
+
+The standalone NeoForge build and installation instructions are in
+[neoforge/README.md](neoforge/README.md).
+
 ## License
 
 ### Code

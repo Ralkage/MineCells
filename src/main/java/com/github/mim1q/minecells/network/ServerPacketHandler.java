@@ -23,6 +23,7 @@ public class ServerPacketHandler {
   public static OwoNetChannel CHANNEL = OwoNetChannel.create(MineCells.createId("main"));
 
   public static void init() {
+    PortalNetworkBridge.registerServerPackets(CHANNEL);
     CHANNEL.registerClientboundDeferred(SpawnerRuneUpdateS2CPacket.class);
     CHANNEL.registerClientboundDeferred(OpenDoorwayScreenS2CPacket.class);
     CHANNEL.registerClientboundDeferred(SpawnRuneParticlesS2CPacket.class);
@@ -32,6 +33,7 @@ public class ServerPacketHandler {
     CHANNEL.registerClientboundDeferred(UpdateConjunctiviusBossBarS2CPacket.class);
     CHANNEL.registerClientboundDeferred(CritS2CPacket.class);
     CHANNEL.registerClientboundDeferred(ExplosionS2CPacket.class);
+    CHANNEL.registerClientboundDeferred(ElevatorDestroyedS2CPacket.class);
 
     CHANNEL.registerServerbound(UpdateDoorwayC2SPacket.class, (msg, ctx) -> {
       var world = ctx.player().getWorld();

@@ -123,6 +123,12 @@ public class MineCellsLevelCC implements ScoreboardComponentInitializer {
       return PORTALS.get(player.server.getScoreboard()).portalMap.get(player.getUuid());
     }
 
+    public static NbtCompound writeAllNbt(MinecraftServer server) {
+      var nbt = new NbtCompound();
+      PORTALS.get(server.getScoreboard()).writeToNbt(nbt, server.getRegistryManager());
+      return nbt;
+    }
+
     public static boolean createPortal(ServerPlayerEntity player) {
       var component = PORTALS.get(player.server.getScoreboard());
       return component.createPortalDataForPlayer(player).isPresent();

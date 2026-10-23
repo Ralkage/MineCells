@@ -16,8 +16,6 @@ import com.github.mim1q.minecells.util.MathUtils;
 import com.github.mim1q.minecells.util.ParticleUtils;
 import io.wispforest.owo.network.ClientAccess;
 import io.wispforest.owo.network.OwoNetChannel;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
@@ -28,11 +26,11 @@ import net.minecraft.registry.Registries;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 
-@Environment(EnvType.CLIENT)
 public class ClientPacketHandler {
   public static final OwoNetChannel CHANNEL = ServerPacketHandler.CHANNEL;
 
   public static void init() {
+    PortalNetworkBridge.registerClientPackets(CHANNEL);
     CHANNEL.registerClientbound(
       SpawnerRuneUpdateS2CPacket.class,
       ClientPacketHandler::handleSpawnerRuneUpdate
@@ -78,6 +76,11 @@ public class ClientPacketHandler {
     CHANNEL.registerClientbound(
       ExplosionS2CPacket.class,
       ClientPacketHandler::handleExplosion
+    );
+
+    CHANNEL.registerClientbound(
+      ElevatorDestroyedS2CPacket.class,
+      ClientPacketHandler::handleElevatorDestroyed
     );
   }
 

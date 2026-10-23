@@ -1,0 +1,1 @@
+{"variants":{"facing=east":{"model":"minecells:block/ramparts_doorway","y":90},"facing=north":{"model":"minecells:block/ramparts_doorway"},"facing=south":{"model":"minecells:block/ramparts_doorway","y":180},"facing=west":{"model":"minecells:block/ramparts_doorway","y":270}}}

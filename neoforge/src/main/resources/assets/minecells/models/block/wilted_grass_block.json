@@ -1,0 +1,1 @@
+{"parent":"minecraft:block/grass_block","textures":{"bottom":"minecells:block/prison_stone","overlay":"minecells:block/wilted_grass_block_overlay","particle":"minecells:block/prison_stone","side":"minecells:block/wilted_grass_block"}}

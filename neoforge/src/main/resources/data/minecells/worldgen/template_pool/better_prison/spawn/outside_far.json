@@ -1,0 +1,1 @@
+{"name":"minecells:better_prison/spawn/outside_far","fallback":"minecraft:empty","elements":[{"weight":1,"element":{"element_type":"minecraft:single_pool_element","projection":"rigid","location":"minecells:better_prison/spawn/outside_far","processors":"minecells:prison/main"}}]}

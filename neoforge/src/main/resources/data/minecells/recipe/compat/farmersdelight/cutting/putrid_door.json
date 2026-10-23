@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "minecells:putrid_door"
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:tool",
+    "tag": "c:tools/axes"
+  },
+  "result": [
+    {
+      "item": "minecells:putrid_planks"
+    }
+  ]
+}

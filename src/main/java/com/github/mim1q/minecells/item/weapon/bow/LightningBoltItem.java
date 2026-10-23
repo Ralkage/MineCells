@@ -236,9 +236,13 @@ public class LightningBoltItem extends Item implements CritIndicator {
       : (LivingEntity) world.getEntityById(LegacyUtil.getOrCreateNbt(stack).getInt("targetId"));
   }
 
-  @Override
   public boolean allowComponentsUpdateAnimation(PlayerEntity player, Hand hand, ItemStack oldStack, ItemStack newStack) {
     return false;
+  }
+
+  // NeoForge uses this hook for the same held-item animation decision.
+  public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+    return slotChanged || oldStack.getItem() != newStack.getItem();
   }
 
   public static int getLightningColor(int ticks) {

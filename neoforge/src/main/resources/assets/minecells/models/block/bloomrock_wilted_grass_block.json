@@ -1,0 +1,1 @@
+{"parent":"minecraft:block/grass_block","textures":{"bottom":"minecells:block/bloomrock","overlay":"minecells:block/wilted_grass_block_overlay","particle":"minecells:block/bloomrock","side":"minecells:block/bloomrock_wilted_grass_block"}}

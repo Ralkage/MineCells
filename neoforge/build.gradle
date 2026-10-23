@@ -1,0 +1,120 @@
+plugins {
+    id 'dev.architectury.loom' version '1.7.435'
+}
+
+group = 'com.github.mim1q'
+version = project.mod_version
+base.archivesName = 'minecells-neoforge'
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.neoforged.net/releases/' }
+    maven { url = 'https://maven.fabricmc.net/' }
+    maven { url = 'https://maven.architectury.dev/' }
+    maven { url = 'https://maven.wispforest.io/releases/' }
+    maven { url = 'https://maven.sinytra.org/' }
+    maven { url = 'https://maven.blamejared.com/' }
+    maven { url = 'https://maven.mim1q.dev/' }
+    maven { url = 'https://redempt.dev/' }
+    maven { url = 'https://repo.sleeping.town/' }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.layered {
+        mappings "net.fabricmc:yarn:${project.yarn_version}:v2"
+        mappings "dev.architectury:yarn-mappings-patch-neoforge:${project.yarn_neoforge_patch}"
+    }
+    neoForge "net.neoforged:neoforge:${project.neoforge_version}"
+
+    modImplementation "io.wispforest:owo-lib-neoforge:${project.owo_version}"
+    annotationProcessor "io.wispforest:owo-lib-neoforge:${project.owo_version}"
+    modCompileOnly "vazkii.patchouli:Patchouli:${project.patchouli_version}"
+    modCompileOnly 'dev.emi:emi-neoforge:1.1.24+1.21.1:api'
+    modCompileOnly 'me.shedaniel:RoughlyEnoughItems-api-neoforge:16.0.799'
+    implementation 'com.github.Redempt:Crunch:2.0.3'
+    include 'com.github.Redempt:Crunch:2.0.3'
+    forgeRuntimeLibrary 'com.github.Redempt:Crunch:2.0.3'
+
+    // owo's NeoForge jar-in-jar dependencies are not exposed correctly to
+    // Architectury Loom's development runtime. These are the versions in
+    // the published owo-lib-neoforge POM for the version above.
+    forgeRuntimeLibrary 'blue.endless:jankson:1.2.2'
+    forgeRuntimeLibrary 'io.wispforest:endec:0.1.8'
+    forgeRuntimeLibrary 'io.wispforest.endec:netty:0.1.4'
+    forgeRuntimeLibrary 'io.wispforest.endec:gson:0.1.5'
+    forgeRuntimeLibrary 'io.wispforest.endec:jankson:0.1.5'
+}
+
+def upstreamJava = file('../src/main/java').canonicalFile.toPath()
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', '../src/main/java']
+            // A NeoForge implementation at the same relative path replaces
+            // the original Fabric class without copying the entire tree.
+            exclude { element ->
+                if (!element.file.toPath().startsWith(upstreamJava)) return false
+                if (file("src/main/java/${element.path}").isFile()) return true
+                // Fabric data generation and loader-specific mixins are not
+                // part of the NeoForge source set. Optional viewer plugins
+                // have native entrypoint overrides in this module.
+                return element.path.startsWith('com/github/mim1q/minecells/datagen/') ||
+                    element.path.startsWith('com/github/mim1q/minecells/mixin/compat/lithium/') ||
+                    element.path.startsWith('com/github/mim1q/minecells/mixin/compat/firstperson/')
+            }
+        }
+        resources {
+            // processResources keeps the first copy of duplicate paths, so
+            // these NeoForge data overlays replace Fabric's load conditions.
+            srcDirs = ['src/main/resources', '../src/main/resources']
+            exclude 'fabric.mod.json', 'minecells.mixins.json'
+        }
+    }
+}
+
+loom {
+    accessWidenerPath = file('../src/main/resources/minecells.accesswidener')
+}
+
+tasks.named('remapJar') {
+    atAccessWideners.add('minecells.accesswidener')
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-Xmaxerrs', '1000']
+}
+
+tasks.withType(ProcessResources).configureEach {
+    // The NeoForge JSON overlays are visited before the upstream resources.
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    inputs.property('version', project.version)
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand(version: project.version)
+    }
+}
+
+tasks.named('sourcesJar') {
+    // Both source roots contain the same paths where a NeoForge overlay
+    // replaces an upstream Fabric resource.
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.withType(Jar).configureEach {
+    from('../LICENSE') {
+        rename { 'LICENSE-minecells' }
+    }
+    from('../LICENSE_ASSETS') {
+        rename { 'LICENSE_ASSETS-minecells' }
+    }
+    from('LICENSE-gimm1q')
+    from('LICENSE-crunch')
+}

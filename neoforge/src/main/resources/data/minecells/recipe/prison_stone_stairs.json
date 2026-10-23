@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"building","key":{"#":{"item":"minecells:prison_stone"}},"pattern":["#  ","## ","###"],"result":{"count":4,"id":"minecells:prison_stone_stairs"}}

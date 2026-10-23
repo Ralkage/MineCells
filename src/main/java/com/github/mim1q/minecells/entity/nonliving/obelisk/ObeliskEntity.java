@@ -9,7 +9,7 @@ import com.github.mim1q.minecells.registry.MineCellsSounds;
 import com.github.mim1q.minecells.util.MathUtils;
 import com.github.mim1q.minecells.util.ParticleUtils;
 import com.github.mim1q.minecells.util.animation.AnimationProperty;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import com.github.mim1q.minecells.network.TrackingPlayers;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
@@ -151,7 +151,7 @@ public abstract class ObeliskEntity extends Entity {
         if (getActivationItem() != null) {
           stack.setCount(stack.getCount() - 1);
         }
-        PlayerLookup.tracking(this).forEach((player) ->
+        TrackingPlayers.tracking(this).forEach((player) ->
           ServerPacketHandler.CHANNEL.serverHandle(player).send(new ObeliskActivationS2CPacket(this.getId())));
       }
       return ActionResult.SUCCESS;

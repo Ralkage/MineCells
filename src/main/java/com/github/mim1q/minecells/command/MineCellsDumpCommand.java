@@ -6,9 +6,7 @@ import com.google.gson.GsonBuilder;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.serialization.JsonOps;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.command.CommandRegistryAccess;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
@@ -26,11 +24,9 @@ public class MineCellsDumpCommand {
 
   private static int dumpPortals(CommandContext<ServerCommandSource> context) {
     var world = context.getSource().getWorld();
-    var component = MineCellsLevelCC.PORTALS.get(world.getScoreboard());
-    var nbt = new NbtCompound();
-    component.writeToNbt(nbt, world.getRegistryManager());
+    var nbt = MineCellsLevelCC.PortalsCC.writeAllNbt(world.getServer());
 
-    var path = FabricLoader.getInstance().getGameDir().resolve("minecells_dumps/portals.json");
+    var path = world.getServer().getRunDirectory().resolve("minecells_dumps/portals.json");
     try {
       var json = NbtOps.INSTANCE.convertTo(JsonOps.INSTANCE, nbt);
       if (!Files.exists(path.getParent())) {

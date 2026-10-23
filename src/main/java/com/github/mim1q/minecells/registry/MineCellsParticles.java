@@ -47,11 +47,11 @@ public class MineCellsParticles {
     ParticleFactoryRegistry.getInstance().register(PROTECTOR, ProtectorParticle.Factory::new);
     ParticleFactoryRegistry.getInstance().register(CHARGE, ChargeParticle.Factory::new);
     ParticleFactoryRegistry.getInstance().register(FLY, FlyParticle.Factory::new);
-    ParticleFactoryRegistry.getInstance().register(SPECKLE, ColoredParticle.createFactory(SpeckleParticle::new));
-    ParticleFactoryRegistry.getInstance().register(FALLING_LEAF, ColoredParticle.createFactory(FallingLeafParticle::new));
+    ParticleFactoryRegistry.getInstance().register(SPECKLE, sprite -> new ColoredParticle.Factory(sprite, SpeckleParticle::new));
+    ParticleFactoryRegistry.getInstance().register(FALLING_LEAF, sprite -> new ColoredParticle.Factory(sprite, FallingLeafParticle::new));
     ParticleFactoryRegistry.getInstance().register(ELECTRICITY, ElectricParticle.Factory::new);
-    ParticleFactoryRegistry.getInstance().register(DROP, ColoredParticle.createFactory(DropParticle::new));
-    ParticleFactoryRegistry.getInstance().register(SMALL_DROP, ColoredParticle.createFactory(SmallDropParticle::new));
-    ParticleFactoryRegistry.getInstance().register(RISING_BUBBLE, ColoredParticle.createFactory(RisingBubbleParticle::new));
+    ParticleFactoryRegistry.getInstance().register(DROP, sprite -> new ColoredParticle.Factory(sprite, DropParticle::new));
+    ParticleFactoryRegistry.getInstance().register(SMALL_DROP, sprite -> new ColoredParticle.Factory(sprite, SmallDropParticle::new));
+    ParticleFactoryRegistry.getInstance().register(RISING_BUBBLE, sprite -> new ColoredParticle.Factory(sprite, RisingBubbleParticle::new));
   }
 }

@@ -1,0 +1,1 @@
+{"name":"minecells:ramparts/room_end","fallback":"minecraft:empty","elements":[{"weight":1,"element":{"element_type":"minecraft:single_pool_element","projection":"rigid","location":"minecells:ramparts/room_end/0","processors":"minecells:promenade"}}]}

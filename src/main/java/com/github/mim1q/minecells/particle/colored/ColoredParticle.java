@@ -1,6 +1,5 @@
 package com.github.mim1q.minecells.particle.colored;
 
-import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleFactory;
 import net.minecraft.client.particle.SpriteBillboardParticle;
@@ -25,10 +24,6 @@ public abstract class ColoredParticle extends SpriteBillboardParticle {
   @FunctionalInterface
   public interface ColoredParticleConstructor {
     ColoredParticle create(ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, int color);
-  }
-
-  public static ParticleFactoryRegistry.PendingParticleFactory<ColoredParticleEffect> createFactory(ColoredParticleConstructor constructor) {
-    return (spriteProvider) -> new Factory(spriteProvider, constructor);
   }
 
   public static class Factory implements ParticleFactory<ColoredParticleEffect> {

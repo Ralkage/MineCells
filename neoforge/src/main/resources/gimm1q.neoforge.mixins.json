@@ -1,0 +1,16 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "dev.mim1q.gimm1q.mixin",
+  "mixins": [],
+  "client": [
+    "client.item.ItemRendererMixin",
+    "client.model.CuboidOverlayRendererMixin",
+    "client.model.EntityModelMixin",
+    "client.model.feature.FeatureRendererMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

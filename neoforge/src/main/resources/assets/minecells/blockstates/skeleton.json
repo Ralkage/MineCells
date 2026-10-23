@@ -1,0 +1,1 @@
+{"variants":{"facing=east":{"model":"minecells:block/skeleton","y":90},"facing=north":{"model":"minecells:block/skeleton"},"facing=south":{"model":"minecells:block/skeleton","y":180},"facing=west":{"model":"minecells:block/skeleton","y":270}}}

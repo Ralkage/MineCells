@@ -1,0 +1,1 @@
+{"type":"minecells:cell_forge_recipe","advancement":"minecells:ramparts","category":"decoration","input":{"minecraft:stick":1,"minecraft:yellow_wool":2},"output":{"count":1,"id":"minecells:ramparts_flag"},"priority":100}

@@ -12,8 +12,6 @@ import com.github.mim1q.minecells.item.weapon.bow.*;
 import com.github.mim1q.minecells.item.weapon.melee.CustomMeleeWeapon;
 import com.github.mim1q.minecells.item.weapon.shield.CustomShieldItem;
 import com.github.mim1q.minecells.item.weapon.shield.CustomShieldType;
-import com.github.mim1q.minecells.util.LegacyUtil;
-import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.minecraft.block.Block;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.component.type.FoodComponents;
@@ -25,7 +23,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Rarity;
 
 import java.util.ArrayList;
@@ -347,20 +344,7 @@ public class MineCellsItems {
   }
 
   public static void init() {
-    AttackBlockCallback.EVENT.register(
-      (player, world, hand, pos, direction) -> {
-        ItemStack stack = player.getStackInHand(player.getActiveHand());
-        if (stack.isOf(CROWBAR) && world.getBlockState(pos).isIn(BlockTags.WOODEN_DOORS)) {
-          if (world.getBlockState(pos.down()).isIn(BlockTags.WOODEN_DOORS)) {
-            world.breakBlock(pos.down(), false, player);
-          }
-          world.breakBlock(pos, false, player);
-          LegacyUtil.getOrCreateNbt(stack).putLong("lastDoorBreakTime", world.getTime());
-          return ActionResult.SUCCESS;
-        }
-        return ActionResult.PASS;
-      }
-    );
+    CrowbarAttackHandler.register();
   }
 
   public static <E extends Item> E register(E item, String name) {

@@ -1,0 +1,1 @@
+{"variants":{"facing=east":{"model":"minecells:block/rotting_corpse","y":90},"facing=north":{"model":"minecells:block/rotting_corpse"},"facing=south":{"model":"minecells:block/rotting_corpse","y":180},"facing=west":{"model":"minecells:block/rotting_corpse","y":270}}}
