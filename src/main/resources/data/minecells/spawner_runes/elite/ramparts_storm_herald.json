@@ -1,0 +1,24 @@
+{
+  "playerDistance": 0,
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "weight": 1,
+          "entity": "minecells:grenadier",
+          "attributes": {
+            "generic.max_health": 105,
+            "generic.movement_speed": 0.3,
+            "generic.attack_damage": 10
+          },
+          "nbt": {
+            "isElite": true,
+            "eliteTitle": "ramparts_storm_herald",
+            "additionalLootTable": "minecells:entities/elite/ramparts_storm_herald"
+          }
+        }
+      ]
+    }
+  ]
+}

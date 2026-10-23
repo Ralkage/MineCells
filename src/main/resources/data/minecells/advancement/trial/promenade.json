@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecells:promenade_of_the_condemned_flag"
+    },
+    "title": {
+      "translate": "advancements.minecells.trial.promenade"
+    },
+    "description": {
+      "translate": "advancements.minecells.trial.promenade.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "minecells:promenade",
+  "criteria": {
+    "trial_complete": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

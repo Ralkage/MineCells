@@ -1,6 +1,8 @@
 package com.github.mim1q.minecells.entity.boss;
 
 import com.github.mim1q.minecells.MineCells;
+import com.github.mim1q.minecells.dimension.MineCellsDimension;
+import com.github.mim1q.minecells.progression.WorldTrials;
 import com.github.mim1q.minecells.block.MineCellsBlockTags;
 import com.github.mim1q.minecells.entity.SewersTentacleEntity;
 import com.github.mim1q.minecells.entity.ai.goal.TimedActionGoal;
@@ -441,13 +443,13 @@ public class ConjunctiviusEntity extends MineCellsBossEntity {
     var server = getWorld().getServer();
     var advancement = server.getAdvancementLoader().get(MineCells.createId("conjunctivius"));
 
-    if (advancement == null) {
-      return;
-    }
-
-    getWorld().getPlayers(TargetPredicate.DEFAULT, this, Box.from(this.getRoomBox().expand(10))).forEach(
-      player -> ((ServerPlayerEntity) player).getAdvancementTracker().grantCriterion(advancement, "conjunctivius_killed")
-    );
+    getWorld().getPlayers(TargetPredicate.DEFAULT, this, Box.from(this.getRoomBox().expand(10))).forEach(player -> {
+      var serverPlayer = (ServerPlayerEntity) player;
+      if (advancement != null) {
+        serverPlayer.getAdvancementTracker().grantCriterion(advancement, "conjunctivius_killed");
+      }
+      WorldTrials.onBossDefeated(serverPlayer, MineCellsDimension.INSUFFERABLE_CRYPT, getBlockPos());
+    });
   }
 
   protected void switchStages(int stage) {

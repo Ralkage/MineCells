@@ -1,0 +1,24 @@
+{
+  "playerDistance": 0,
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "weight": 1,
+          "entity": "minecells:runner",
+          "attributes": {
+            "generic.max_health": 120,
+            "generic.movement_speed": 0.38,
+            "generic.attack_damage": 12
+          },
+          "nbt": {
+            "isElite": true,
+            "eliteTitle": "black_bridge_sentinel",
+            "additionalLootTable": "minecells:entities/elite/black_bridge_sentinel"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 package com.github.mim1q.minecells.entity.boss;
 
 import com.github.mim1q.minecells.MineCells;
+import com.github.mim1q.minecells.dimension.MineCellsDimension;
+import com.github.mim1q.minecells.progression.WorldTrials;
 import com.github.mim1q.minecells.entity.ai.goal.*;
 import com.github.mim1q.minecells.entity.ai.goal.ShockwaveGoal.ShockwaveType;
 import com.github.mim1q.minecells.entity.ai.goal.concierge.ConciergePunchGoal;
@@ -419,13 +421,13 @@ public class ConciergeEntity extends MineCellsBossEntity {
     var server = getWorld().getServer();
     var advancement = server.getAdvancementLoader().get(MineCells.createId("concierge"));
 
-    if (advancement == null) {
-      return;
-    }
-
-    getWorld().getEntitiesByClass(PlayerEntity.class, Box.of(getPos(), 128, 128, 128), Objects::nonNull).forEach(
-      player -> ((ServerPlayerEntity) player).getAdvancementTracker().grantCriterion(advancement, "concierge_killed")
-    );
+    getWorld().getEntitiesByClass(PlayerEntity.class, Box.of(getPos(), 128, 128, 128), Objects::nonNull).forEach(player -> {
+      var serverPlayer = (ServerPlayerEntity) player;
+      if (advancement != null) {
+        serverPlayer.getAdvancementTracker().grantCriterion(advancement, "concierge_killed");
+      }
+      WorldTrials.onBossDefeated(serverPlayer, MineCellsDimension.BLACK_BRIDGE, getBlockPos());
+    });
   }
 
   @Override

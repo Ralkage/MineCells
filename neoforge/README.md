@@ -42,17 +42,38 @@ affects newly generated chunks in existing worlds.
 
 ## Clock Tower feature branch
 
-The Clock Tower follows the Black Bridge. Defeat the Concierge, pass through
-the new doorway in the Black Bridge arena, cross the tower's combat rooms and
-treasure detour, then fight the Time Keeper. Her blade, dash, and clock pulse
-have visible windups; the second phase is faster. Defeating her opens the
-Overworld exit. A doorway at the tower entrance returns to the Black Bridge.
+The Clock Tower follows the Black Bridge. Defeat the Concierge and pass through
+the doorway in the Black Bridge arena. The tower now has a lower workshop loop
+with a forge and treasure room, two stair ascents, an upper workshop and
+observatory, and a bell chamber before the Time Keeper arena. Gear and pendulum
+rooms have their own enemy encounters and the new rooms contain themed loot.
+The bell chamber's Chronoguard obelisk is an optional mini-boss. The Time
+Keeper's blade, dash, and clock pulse have visible windups; the second phase
+is faster. Defeating her opens the Overworld exit. A doorway at the tower
+entrance returns to the Black Bridge.
 
-Previously generated Black Bridge arenas do not gain the new doorway. In an
-existing save, defeating the Concierge unlocks a Clock Tower Doorway recipe
-in the Cell Crafter. Place that doorway on a clear 3×3 solid wall in the
-Overworld to enter the route. A new world or a fresh Black Bridge run area
-has the built-in arena doorway.
+Each portal world also has one named mini-boss obelisk on its guaranteed route.
+Interact with an obelisk to summon its elite enemy. The Prison Gaoler,
+Promenade Briar Warden, Ramparts Storm Herald, Black Bridge Sentinel, Crypt
+Sentry, and Clock Tower Chronoguard each have their own loot.
+
+Right-click a world banner to start an optional trial. Progress and a single
+reward are saved for each player and dungeon run:
+
+| World | Trial |
+| --- | --- |
+| Prisoners' Quarters | Scavenge and bring eight monster cells back to a banner. |
+| Promenade | Hunt two runners and one grenadier, then return. |
+| Ramparts | Reach a banner at least twelve blocks above the starting banner. |
+| Black Bridge | Defeat the Concierge and bring a boss stem cell to a banner. |
+| Insufferable Crypt | Defeat Conjunctivius and reach the banner by the exit rift within eight minutes. |
+| Clock Tower | Touch the entry, forge, and upper pendulum banners in order within five minutes. |
+
+Previously generated structures do not gain the new rooms, obelisks, or Crypt
+exit banner. In an existing save, defeating the Concierge unlocks a Clock
+Tower Doorway recipe in the Cell Crafter. Place that doorway on a clear 3×3
+solid wall in the Overworld to enter a fresh tower run. A new world or fresh
+Black Bridge run area has the built-in arena doorway.
 
 To test in a development client, run
 `JAVA_HOME=/path/to/jdk-21 bash ./gradlew -p neoforge runClient` from the

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:loot_table", "value": "minecells:chests/common/general_treasure" }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:item", "name": "minecraft:clock", "weight": 1 },
+        { "type": "minecraft:item", "name": "minecraft:copper_ingot", "weight": 2,
+          "functions": [{ "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 5, "max": 9 } }] }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "minecraft:loot_table", "value": "minecells:chests/special/all_weapons" }
+      ],
+      "conditions": [
+        { "condition": "minecraft:random_chance", "chance": 0.25 }
+      ]
+    }
+  ]
+}

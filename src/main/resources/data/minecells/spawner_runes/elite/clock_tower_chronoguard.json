@@ -1,0 +1,24 @@
+{
+  "playerDistance": 0,
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "weight": 1,
+          "entity": "minecells:sweeper",
+          "attributes": {
+            "generic.max_health": 130,
+            "generic.movement_speed": 0.32,
+            "generic.attack_damage": 12
+          },
+          "nbt": {
+            "isElite": true,
+            "eliteTitle": "clock_tower_chronoguard",
+            "additionalLootTable": "minecells:entities/elite/clock_tower_chronoguard"
+          }
+        }
+      ]
+    }
+  ]
+}

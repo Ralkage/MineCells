@@ -1,0 +1,24 @@
+{
+  "playerDistance": 0,
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "weight": 1,
+          "entity": "minecells:leaping_zombie",
+          "attributes": {
+            "generic.max_health": 90,
+            "generic.movement_speed": 0.31,
+            "generic.attack_damage": 9
+          },
+          "nbt": {
+            "isElite": true,
+            "eliteTitle": "promenade_briar_warden",
+            "additionalLootTable": "minecells:entities/elite/promenade_briar_warden"
+          }
+        }
+      ]
+    }
+  ]
+}

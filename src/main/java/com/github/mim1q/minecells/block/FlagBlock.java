@@ -3,6 +3,8 @@ package com.github.mim1q.minecells.block;
 import com.github.mim1q.minecells.MineCells;
 import com.github.mim1q.minecells.block.blockentity.FlagBlockEntity;
 import com.github.mim1q.minecells.util.ModelUtils;
+import com.github.mim1q.minecells.progression.WorldTrials;
+import com.github.mim1q.minecells.dimension.MineCellsDimension;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -14,6 +16,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -106,6 +109,12 @@ public class FlagBlock extends BlockWithEntity {
   @Override
   @SuppressWarnings("deprecation")
   public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+    if (player instanceof ServerPlayerEntity serverPlayer && WorldTrials.useBanner(serverPlayer, this, pos)) {
+      return ActionResult.SUCCESS;
+    }
+    if (world.isClient() && WorldTrials.isTrialBanner(MineCellsDimension.of(world), this)) {
+      return ActionResult.SUCCESS;
+    }
     world.setBlockState(pos, state.with(WAVING, !state.get(WAVING)));
     return ActionResult.SUCCESS;
   }

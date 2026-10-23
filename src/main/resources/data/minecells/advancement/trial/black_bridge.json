@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecells:black_bridge_flag"
+    },
+    "title": {
+      "translate": "advancements.minecells.trial.black_bridge"
+    },
+    "description": {
+      "translate": "advancements.minecells.trial.black_bridge.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "minecells:black_bridge",
+  "criteria": {
+    "trial_complete": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

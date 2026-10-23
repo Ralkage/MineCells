@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecells:torn_kings_crest_flag"
+    },
+    "title": {
+      "translate": "advancements.minecells.trial.prison"
+    },
+    "description": {
+      "translate": "advancements.minecells.trial.prison.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "minecells:prison",
+  "criteria": {
+    "trial_complete": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -90,7 +90,8 @@ public class GridPiece extends StructurePiece {
       poolEntry,
       8,
       startingPos,
-      rotation
+      rotation,
+      chunkBox
     );
   }
 

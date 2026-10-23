@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecells:ramparts_flag"
+    },
+    "title": {
+      "translate": "advancements.minecells.trial.ramparts"
+    },
+    "description": {
+      "translate": "advancements.minecells.trial.ramparts.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "minecells:ramparts",
+  "criteria": {
+    "trial_complete": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

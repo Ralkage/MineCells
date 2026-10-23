@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecells:insufferable_crypt_flag"
+    },
+    "title": {
+      "translate": "advancements.minecells.trial.insufferable_crypt"
+    },
+    "description": {
+      "translate": "advancements.minecells.trial.insufferable_crypt.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "minecells:insufferable_crypt",
+  "criteria": {
+    "trial_complete": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

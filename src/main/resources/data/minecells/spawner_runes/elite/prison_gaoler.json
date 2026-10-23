@@ -1,0 +1,24 @@
+{
+  "playerDistance": 0,
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "weight": 1,
+          "entity": "minecells:shieldbearer",
+          "attributes": {
+            "generic.max_health": 95,
+            "generic.movement_speed": 0.28,
+            "generic.attack_damage": 10
+          },
+          "nbt": {
+            "isElite": true,
+            "eliteTitle": "prison_gaoler",
+            "additionalLootTable": "minecells:entities/elite/prison_gaoler"
+          }
+        }
+      ]
+    }
+  ]
+}

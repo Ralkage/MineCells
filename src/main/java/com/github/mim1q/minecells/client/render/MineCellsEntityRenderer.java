@@ -36,7 +36,10 @@ public abstract class MineCellsEntityRenderer<T extends MineCellsEntity, M exten
     matrices.push();
     {
       final var vertices = vertexConsumers.getBuffer(RenderLayer.getEntityCutout(RED_STAR_TEXTURE));
-      final var text = Text.translatable(ELITE_KEY);
+      final var eliteTitle = entity.getEliteTitle();
+      final var text = eliteTitle.isEmpty()
+        ? Text.translatable(ELITE_KEY)
+        : Text.translatable("entity.minecells.miniboss." + eliteTitle);
 
       matrices.translate(0.0D, entity.getHeight() + 0.66D, 0.0D);
       final var textScale = 1 / 48F;

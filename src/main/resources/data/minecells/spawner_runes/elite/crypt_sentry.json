@@ -1,0 +1,24 @@
+{
+  "playerDistance": 0,
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "weight": 1,
+          "entity": "minecells:inquisitor",
+          "attributes": {
+            "generic.max_health": 115,
+            "generic.movement_speed": 0.3,
+            "generic.attack_damage": 11
+          },
+          "nbt": {
+            "isElite": true,
+            "eliteTitle": "crypt_sentry",
+            "additionalLootTable": "minecells:entities/elite/crypt_sentry"
+          }
+        }
+      ]
+    }
+  ]
+}

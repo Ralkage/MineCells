@@ -152,6 +152,25 @@ public class MineCellsStructurePoolBasedGenerator {
     BlockPos pos,
     BlockRotation rotation
   ) {
+    generate(world, chunkGenerator, registryManager, structureTemplateManager, structureAccessor,
+      noiseConfig, random, seed, structurePool, i, pos, rotation, BlockBox.infinite());
+  }
+
+  public static void generate(
+    StructureWorldAccess world,
+    ChunkGenerator chunkGenerator,
+    DynamicRegistryManager registryManager,
+    StructureTemplateManager structureTemplateManager,
+    StructureAccessor structureAccessor,
+    NoiseConfig noiseConfig,
+    Random random,
+    int seed,
+    RegistryEntry<StructurePool> structurePool,
+    int i,
+    BlockPos pos,
+    BlockRotation rotation,
+    BlockBox placementBox
+  ) {
     Structure.Context context = new Structure.Context(registryManager, chunkGenerator, chunkGenerator.getBiomeSource(), noiseConfig, structureTemplateManager, seed, new ChunkPos(pos), world, (registryEntry) -> true);
     Optional<Structure.StructurePosition> optional = generate(context, structurePool, Optional.empty(), i, pos, Optional.empty(), rotation);
     if (optional.isPresent()) {
@@ -159,7 +178,7 @@ public class MineCellsStructurePoolBasedGenerator {
 
       for (StructurePiece structurePiece : structurePiecesCollector.toList().pieces()) {
         if (structurePiece instanceof PoolStructurePiece poolStructurePiece) {
-          poolStructurePiece.generate(world, structureAccessor, chunkGenerator, random, BlockBox.infinite(), pos, false);
+          poolStructurePiece.generate(world, structureAccessor, chunkGenerator, random, placementBox, pos, false);
         }
       }
     }

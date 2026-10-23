@@ -41,12 +41,14 @@ import java.util.function.BiConsumer;
 
 import static net.minecraft.entity.data.DataTracker.registerData;
 import static net.minecraft.entity.data.TrackedDataHandlerRegistry.BOOLEAN;
+import static net.minecraft.entity.data.TrackedDataHandlerRegistry.STRING;
 
 public class MineCellsEntity extends HostileEntity {
   public static final float ELITE_SCALE = 1.25F;
   private static final TrackedData<Boolean> IS_ELITE = registerData(MineCellsEntity.class, BOOLEAN);
   private static final TrackedData<Boolean> ELITE_AURA_CHARGING = registerData(MineCellsEntity.class, BOOLEAN);
   private static final TrackedData<Boolean> ELITE_AURA_RELEASING = registerData(MineCellsEntity.class, BOOLEAN);
+  private static final TrackedData<String> ELITE_TITLE = registerData(MineCellsEntity.class, STRING);
   public static final TrackedData<Boolean> FOR_DISPLAY = registerData(MineCellsEntity.class, BOOLEAN);
 
   public BlockPos spawnRunePos = null;
@@ -94,6 +96,7 @@ public class MineCellsEntity extends HostileEntity {
     builder.add(IS_ELITE, false);
     builder.add(ELITE_AURA_CHARGING, false);
     builder.add(ELITE_AURA_RELEASING, false);
+    builder.add(ELITE_TITLE, "");
     builder.add(FOR_DISPLAY, false);
   }
 
@@ -244,6 +247,11 @@ public class MineCellsEntity extends HostileEntity {
     return dataTracker.get(IS_ELITE);
   }
 
+  /** Translation suffix for the named elite encounter, or an empty string for ordinary elites. */
+  public String getEliteTitle() {
+    return dataTracker.get(ELITE_TITLE);
+  }
+
   @Override
   protected SoundEvent getDeathSound() {
     return MineCellsSounds.LEAPING_ZOMBIE_DEATH;
@@ -264,6 +272,8 @@ public class MineCellsEntity extends HostileEntity {
     if (spawnRunePos != null)
       nbt.putLong("spawnRunePos", spawnRunePos.asLong());
     nbt.putBoolean("isElite", dataTracker.get(IS_ELITE));
+    if (!getEliteTitle().isEmpty())
+      nbt.putString("eliteTitle", getEliteTitle());
     if (additionalLootTable != null)
       nbt.putString("additionalLootTable", additionalLootTable.toString());
     nbt.putBoolean("forDisplay", this.dataTracker.get(FOR_DISPLAY));
@@ -277,6 +287,7 @@ public class MineCellsEntity extends HostileEntity {
     if (nbt.contains("spawnRunePos"))
       spawnRunePos = BlockPos.fromLong(nbt.getLong("spawnRunePos"));
     dataTracker.set(IS_ELITE, nbt.getBoolean("isElite"));
+    dataTracker.set(ELITE_TITLE, nbt.getString("eliteTitle"));
     if (nbt.contains("additionalLootTable"))
       additionalLootTable = Identifier.tryParse(nbt.getString("additionalLootTable"));
     if (nbt.contains("forDisplay")) this.dataTracker.set(FOR_DISPLAY, nbt.getBoolean("forDisplay"));

@@ -1,0 +1,19 @@
+{
+  "cooldown": 210.0,
+  "spawnDistance": 3.0,
+  "playerDistance": 20.0,
+  "pools": [
+    {
+      "rolls": {
+        "type": "uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 2
+      },
+      "entries": [
+        { "weight": 3, "entity": "minecells:runner" },
+        { "weight": 2, "entity": "minecells:shieldbearer" },
+        { "weight": 1, "entity": "minecells:inquisitor" }
+      ]
+    }
+  ]
+}
