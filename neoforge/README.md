@@ -31,3 +31,10 @@ the in-game guidebook.
 
 For a development server, run `bash ./gradlew -p neoforge runServer` from the
 repository root with the same Java 21 environment.
+
+Overworld portal ruins generate in forests, taigas, and plains. With commands
+enabled, `/locate structure minecells:overworld_portal` finds the nearest ruin.
+Its chest contains a Prisoners' Quarters Doorway item; place that item on a
+clear 3×3 solid wall in the Overworld to build an active portal. The doorway
+can also be crafted or taken from the Mine Cells creative tab. Active portals
+do not generate in the terrain by themselves.

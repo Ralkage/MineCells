@@ -17,17 +17,15 @@ public class SimpleSet extends FeatureSet {
   public final StairsBlock stairs;
   public final SlabBlock slab = registerBlockWithItem(name + "_slab", new SlabBlock(defaultBlockSettings().nonOpaque()));
 
-  private final List<ItemStack> stacks;
-
   public SimpleSet(Identifier identifier, String baseSuffix, Supplier<Item.Settings> defaultItemSettings, Supplier<AbstractBlock.Settings> defaultBlockSettings) {
     super(identifier, defaultItemSettings, defaultBlockSettings);
     block  = registerBlockWithItem(name + baseSuffix, new Block(defaultBlockSettings.get()));
     stairs = registerBlockWithItem(name + "_stairs", new StairsBlock(block.getDefaultState(), defaultBlockSettings.get()));
-    stacks = Stream.of(block, stairs, slab).map(b -> b.asItem().getDefaultStack()).toList();
   }
 
   @Override
   public List<ItemStack> getStacks() {
-    return stacks;
+    return Stream.of(block, stairs, slab)
+      .map(b -> b.asItem().getDefaultStack()).toList();
   }
 }

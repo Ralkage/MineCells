@@ -15,10 +15,6 @@ public class FullStoneSet extends StoneSet {
   public final ButtonBlock button = registerBlockWithItem(name + "_button", new ButtonBlock(blockSetType, 10, defaultBlockSettings().noCollision()));
   public final PressurePlateBlock pressurePlate = registerBlockWithItem(name + "_pressure_plate", new PressurePlateBlock(blockSetType, defaultBlockSettings().noCollision()));
 
-  private final List<ItemStack> stacks = Stream.of(
-    block, stairs, slab, wall, pressurePlate, button
-  ).map(b -> b.asItem().getDefaultStack()).toList();
-
   public FullStoneSet(
     Identifier identifier,
     String baseSuffix,
@@ -30,6 +26,7 @@ public class FullStoneSet extends StoneSet {
 
   @Override
   public List<ItemStack> getStacks() {
-    return stacks;
+    return Stream.of(block, stairs, slab, wall, pressurePlate, button)
+      .map(b -> b.asItem().getDefaultStack()).toList();
   }
 }

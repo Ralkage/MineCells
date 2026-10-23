@@ -19,14 +19,13 @@ public class LeavesSet extends FeatureSet {
   public final WallLeavesBlock wallLeaves = registerBlockWithItem(name + "_wall_leaves", new WallLeavesBlock(wallLeafOffset(defaultBlockSettings()).noCollision().replaceable().breakInstantly()));
   public final HangingLeavesBlock hangingLeaves = registerBlockWithItem(name + "_hanging_leaves", new HangingLeavesBlock(defaultBlockSettings().noCollision().replaceable().breakInstantly()));
 
-  private final List<ItemStack> stacks = Stream.of(leaves, wallLeaves, hangingLeaves).map(b -> b.asItem().getDefaultStack()).toList();
-
   public LeavesSet(Identifier identifier, Supplier<Item.Settings> defaultItemSettings, Supplier<AbstractBlock.Settings> defaultBlockSettings) {
     super(identifier, defaultItemSettings, defaultBlockSettings);
   }
 
   @Override
   public List<ItemStack> getStacks() {
-    return stacks;
+    return Stream.of(leaves, wallLeaves, hangingLeaves)
+      .map(b -> b.asItem().getDefaultStack()).toList();
   }
 }

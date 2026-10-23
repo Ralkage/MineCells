@@ -16,16 +16,11 @@ public class StoneSet extends FeatureSet {
   public final SlabBlock slab = registerBlockWithItem(name + "_slab", new SlabBlock(defaultBlockSettings().nonOpaque()));
   public final WallBlock wall = registerBlockWithItem(name + "_wall", new WallBlock(defaultBlockSettings()));
 
-  private final List<ItemStack> stacks;
-
   public StoneSet(Identifier identifier, String baseSuffix, Supplier<Item.Settings> defaultItemSettings, Supplier<AbstractBlock.Settings> defaultBlockSettings) {
     super(identifier, defaultItemSettings, defaultBlockSettings);
     blockSetType = new BlockSetType(identifier.getPath());
     block = registerBlockWithItem(name + baseSuffix, new Block(defaultBlockSettings()));
     stairs = registerBlockWithItem(name + "_stairs", new StairsBlock(block.getDefaultState(), defaultBlockSettings()));
-    stacks = Stream.of(
-      block, stairs, slab, wall
-    ).map(b -> b.asItem().getDefaultStack()).toList();
   }
 
   public List<Block> getBlocks() {
@@ -34,6 +29,7 @@ public class StoneSet extends FeatureSet {
 
   @Override
   public List<ItemStack> getStacks() {
-    return stacks;
+    return Stream.of(block, stairs, slab, wall)
+      .map(b -> b.asItem().getDefaultStack()).toList();
   }
 }

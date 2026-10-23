@@ -40,10 +40,6 @@ public class WoodSet extends FeatureSet {
   public final WallSignBlock wallSign = registerBlock(name + "_wall_sign", new WallSignBlock(woodType, defaultBlockSettings().nonOpaque().noCollision()));
   public final SignItem signItem = registerItem(name + "_sign", new SignItem(defaultItemSettings().maxCount(16), sign, wallSign));
 
-  private final List<ItemStack> stacks = Stream.of(
-    planks, log, strippedLog, wood, strippedWood, stairs, slab, door, trapdoor, fence, fenceGate, button, pressurePlate, signItem
-  ).map(b -> b.asItem().getDefaultStack()).toList();
-
   public WoodSet(
     Identifier identifier,
     Supplier<Item.Settings> defaultItemSettings,
@@ -68,6 +64,8 @@ public class WoodSet extends FeatureSet {
 
   @Override
   public List<ItemStack> getStacks() {
-    return stacks;
+    return Stream.of(
+      planks, log, strippedLog, wood, strippedWood, stairs, slab, door, trapdoor, fence, fenceGate, button, pressurePlate, signItem
+    ).map(b -> b.asItem().getDefaultStack()).toList();
   }
 }
